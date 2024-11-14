@@ -15,6 +15,11 @@ function Poll({id}) {
   }, [id]);
 
   const handleVote =  (optionId) => {
+    const saveVote = async (optionId) => {
+      const response = await fetch(`http://localhost:8080/poll/saveVote?id=${optionId}`, {method: "POST"});
+    };
+
+    saveVote(optionId);
     console.log(optionId);
   }
 
