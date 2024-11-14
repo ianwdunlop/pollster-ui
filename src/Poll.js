@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 function Poll({id}) {
-  const [pollId, setPollId] = useState(id);
   const [poll, setPoll] = useState();
 
   useEffect(() => {
