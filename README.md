@@ -1,5 +1,6 @@
 # Pollster UI
-React based UI to display results from the Pollster API.
+React based UI to display results from the Pollster API. Shows current polls. Click on button to vote. Shows
+the percentage votes for each option in the poll.
 
 ## Running
 Install required packages

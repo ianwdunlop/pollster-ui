@@ -32,7 +32,7 @@ function Poll({id}) {
     poll.options.forEach(option => {
       totalVotes += option.votes;
     });
-    return voteNumber/totalVotes * 100;
+    return Math.trunc(voteNumber/totalVotes * 100);
   }
 
   return (
