@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 
 function Poll({id}) {
-  const [poll, setPoll] = useState(null);
+  const [pollId, setPollId] = useState(id);
+  const [poll, setPoll] = useState();
 
   useEffect(() => {
-    const fetchPoll = async () => {
+    const fetchPoll = async (id) => {
       const response = await fetch(`http://localhost:8080/poll/getPoll/${id}`);
       const data = await response.json();
       setPoll(data);
     };
 
-    fetchPoll();
-  }, []);
+    fetchPoll(id);
+  }, [id]);
+
+  const handleVote =  (optionId) => {
+    console.log(optionId);
+  }
 
   if (!poll) {
     return <div>Loading...</div>;
@@ -24,8 +28,7 @@ function Poll({id}) {
       <ul>
         {poll.options.map(option => (
           <li key={option.id}>
-            {option.text} {option.votes}
-            {/* <Link to={`/poll/saveVote?id=${option.id}`}>{option.text} ({option.votes})</Link> */}
+            <button onClick={() => handleVote(option.id)}>{option.text}</button>{option.votes}
           </li>
         ))}
       </ul>
