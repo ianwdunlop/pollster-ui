@@ -27,13 +27,21 @@ function Poll({id}) {
     return <div>Loading...</div>;
   }
 
+  const votePercent = (voteNumber) => {
+    let totalVotes = 0;
+    poll.options.forEach(option => {
+      totalVotes += option.votes;
+    });
+    return voteNumber/totalVotes * 100;
+  }
+
   return (
     <div>
       <h2>{poll.question}</h2>
       <ul>
         {poll.options.map(option => (
           <li key={option.id}>
-            <button onClick={() => handleVote(option.id)}>{option.text}</button>{option.votes}
+            <button onClick={() => handleVote(option.id)}>{option.text}</button> {votePercent(option.votes)}%
           </li>
         ))}
       </ul>
