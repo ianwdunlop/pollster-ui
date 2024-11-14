@@ -14,4 +14,9 @@ npm start
 ```
 
 Runs the app in the development mode.  
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser. You will need some data in the [API](https://github.com/ianwdunlop/pollster) so push some into it first.
+
+## Testing
+```bash
+npm run test
+```
