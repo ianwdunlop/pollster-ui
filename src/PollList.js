@@ -1,4 +1,4 @@
-import {React, useState } from 'react';
+import { React, useState } from 'react';
 import Poll from './Poll';
 
 function PollList({ polls }) {
@@ -12,17 +12,19 @@ function PollList({ polls }) {
 
   return (
     <div>
-      <h1>Active Polls</h1>
-      <ul>
-        {polls.map(poll => (
-          <li key={poll.id}>
-            <button onClick={() => handlePollClick(poll.id)}>{poll.question}</button>
-          </li>
-        ))}
-      </ul>
       {(() => {
         if (showPoll) {
           return (<Poll id={currentPollId} />)
+        } else {
+          return (
+            <><h1>Active Polls</h1>
+              <ul>
+                {polls.map(poll => (
+                  <li key={poll.id}>
+                    <button onClick={() => handlePollClick(poll.id)}>{poll.question}</button>
+                  </li>
+                ))}
+              </ul></>)
         }
       })()}
     </div>
